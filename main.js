@@ -34,7 +34,7 @@ if(status!=""){
         fill("#FF0000");
         textSize(20);
         var percent= floor(object[i].confidence*100);
-        text(object[i].label+" "+percent+"%", object[i].x, object[i].y);
+        text(object[i].label+" "+percent+"%", object[i].x+10, object[i].y+15);
         noFill();
         stroke("#FF0000");
         rect(object[i].x, object[i].y, object[i].width, object[i].height);
