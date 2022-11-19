@@ -1,19 +1,21 @@
 var object=[];
-var img="";
 var status="";
 function preload(){
-img = loadImage("dog_cat.jpg");
 }
 function setup(){
 canvas = createCanvas(640, 420);
 canvas.center();
-objectDetector= ml5.objectDetector("cocossd", modelLoaded);
+video = createCapture(VIDEO);
+video.size(640, 420);
+video.hide();
+}
+function start(){
+ objectDetector= ml5.objectDetector("cocossd", modelLoaded);
 document.getElementById("status").innerHTML="Status : Detecting Objects";
 }
 function modelLoaded(){
 console.log("cocossd Model Loaded");
 status= true;
-objectDetector.detect(img, gotResults);
 }
 function gotResults(error, results){
 if(error){
@@ -26,17 +28,21 @@ else{
 }
 function draw(){
     
-image(img, 0, 0, 640, 420);
+image(video, 0, 0, 640, 420);
 if(status!=""){
+objectDetector.detect(video, gotResults);
+var r = random(255);
+var g = random(255);
+var b =  random(255);
     for(var i = 0 ; i < object.length; i++){
-        document.getElementById("status").innerHTML="Status : Object Detected";
+        document.getElementById("status").innerHTML="Status : Object Detected";       
 
-        fill("#FF0000");
+        fill(r, g, b);
         textSize(20);
         var percent= floor(object[i].confidence*100);
         text(object[i].label+" "+percent+"%", object[i].x+10, object[i].y+15);
         noFill();
-        stroke("#FF0000");
+        stroke(r, g, b);
         rect(object[i].x, object[i].y, object[i].width, object[i].height);
     }
 }
