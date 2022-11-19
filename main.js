@@ -36,7 +36,7 @@ var g = random(255);
 var b =  random(255);
     for(var i = 0 ; i < object.length; i++){
         document.getElementById("status").innerHTML="Status : Object Detected";       
-
+        document.getElementById("number_of_objects").innerHTML= object.length;
         fill(r, g, b);
         textSize(20);
         var percent= floor(object[i].confidence*100);
