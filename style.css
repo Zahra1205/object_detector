@@ -1,20 +1,38 @@
 body{
     background-size: cover;
-    background-position: center;
 }
-.header
-{
-font-size: 23px;
-width: 100%;
-margin: 0px;
-}
+.header{
+    font-size: 23px;
+    width: 100%;
+    margin: 0px;
 
-#status, #number_of_objects, #start
-{
-font-size: 18px;
+}
+#start, #number_of_objects, #status{
+    font-size: 18px;
+
+}
+.object_name{
+font-size: 30px;
+ color: black;
+}
+#input{
+    height: 50;
+    width: 100px;
+    size: 20px;
+    font-size: 30px;
+}
+.footer{
+    bottom: 0;
+    position: fixed;
+    background-color: lightgoldenrodyellow;
+    width: 100%;
+    color: red;
+    font-size: 25px;
+    text-align: center;
 }
 canvas{
-    box-shadow: 10px 10px 10px darkgray;
+    border: 2px solid cornsilk;
     border-radius: 10px;
-    margin-top: 30px;
+    margin-top: 130px;
+    box-shadow: 5px 5px 5px lightslategray;
 }
